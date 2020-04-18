@@ -8,12 +8,13 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
+import { SiteTitleQuery } from '../../graphql-types'
 import Header from "./header"
 import "./layout.css"
 
 const Layout: React.FC = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+  const data = useStaticQuery<SiteTitleQuery>(graphql`
+    query SiteTitle {
       site {
         siteMetadata {
           title
@@ -24,7 +25,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site?.siteMetadata?.title ?? ''} />
       <div
         style={{
           margin: `0 auto`,
