@@ -23,6 +23,8 @@
     "@types/react-helmet": "^5.0.15",
     "gatsby-plugin-graphql-codegen": "2.7.1",
     "gatsby-plugin-typescript": "2.3.3",
+    "gatsby-source-contentful": "2.2.9",
+    "gatsby-transformer-remark": "2.7.3",
     "prettier": "2.0.4",
     "typescript": "3.8.3"
   },
