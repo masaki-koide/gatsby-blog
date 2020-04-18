@@ -30,7 +30,16 @@ module.exports = {
       },
     },
     'gatsby-plugin-typescript',
-    'gatsby-plugin-graphql-codegen',
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        documentPaths: [
+          './src/**/*.{ts,tsx}',
+          './node_modules/gatsby-*/**/*.js',
+          './config/gatsby-node.ts',
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: {
