@@ -40,7 +40,13 @@ const PostPage: React.FC<Props> = ({
           <h2>{title}</h2>
         </header>
         <article>
-          {imageFluid && <img src={imageFluid.src} srcSet={imageFluid.srcSet} sizes={imageFluid.sizes} />}
+          {imageFluid && (
+            <img
+              src={imageFluid.src}
+              srcSet={imageFluid.srcSet}
+              sizes={imageFluid.sizes}
+            />
+          )}
           <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
           <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
           <div>

@@ -15,19 +15,22 @@ export type PostPageContext = {
   }
 }
 
-const PostPageContainer = ({ data, pageContext }: PageProps<PostQuery, PostPageContext>) => {
+const PostPageContainer = ({
+  data,
+  pageContext,
+}: PageProps<PostQuery, PostPageContext>) => {
   if (!data.contentfulBlogPost) {
     throw Error('post is not found')
   }
 
   const {
     body,
-    createdAt, 
+    createdAt,
     description,
     heroImage,
     tags,
     title,
-    updatedAt 
+    updatedAt,
   } = data.contentfulBlogPost
   const { next, previous } = pageContext
 
@@ -43,16 +46,14 @@ const PostPageContainer = ({ data, pageContext }: PageProps<PostQuery, PostPageC
     updatedAt: updatedAt ?? '',
   }
 
-  return (
-    <PostPage {...props} />
-  )
+  return <PostPage {...props} />
 }
 
 export default PostPageContainer
 
 export const pageQuery = graphql`
   query Post($id: String) {
-    contentfulBlogPost(id: {eq: $id}) {
+    contentfulBlogPost(id: { eq: $id }) {
       id
       slug
       body {

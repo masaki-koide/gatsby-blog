@@ -1,6 +1,6 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import { ImageSharpQuery } from '../../graphql-types'
 
@@ -29,11 +29,13 @@ const Image = () => {
   `)
 
   const fluid = data.placeholderImage?.childImageSharp?.fluid
-  const typedFluid = fluid ? {
-    ...fluid,
-    base64: fluid.base64 ?? undefined
-  } : undefined
-  
+  const typedFluid = fluid
+    ? {
+        ...fluid,
+        base64: fluid.base64 ?? undefined,
+      }
+    : undefined
+
   return <Img fluid={typedFluid} />
 }
 

@@ -12,7 +12,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 }) => {
   const { data, errors } = await graphql<AllPostsQuery>(`
     query AllPosts {
-      allContentfulBlogPost(sort: {fields: createdAt, order: DESC}) {
+      allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
         nodes {
           id
           slug
@@ -31,9 +31,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
     }
 
     const nextElement = array[index + 1]
-    const next = nextElement && nextElement.slug ? { slug: nextElement.slug } : undefined
+    const next =
+      nextElement && nextElement.slug ? { slug: nextElement.slug } : undefined
     const previousElement = array[index - 1]
-    const previous = previousElement && previousElement.slug ? { slug: previousElement.slug } : undefined
+    const previous =
+      previousElement && previousElement.slug
+        ? { slug: previousElement.slug }
+        : undefined
 
     createPage<PostPageContext>({
       path: toPath('post', { slug }),

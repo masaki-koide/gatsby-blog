@@ -38,14 +38,16 @@ module.exports = {
           './node_modules/gatsby-*/**/*.js',
           './config/gatsby-node.ts',
         ],
-        codegenPlugins: [{
-          resolve: 'typescript',
-          options: {
-            scalars: {
-              Date: 'string',
+        codegenPlugins: [
+          {
+            resolve: 'typescript',
+            options: {
+              scalars: {
+                Date: 'string',
+              },
             },
           },
-        }],
+        ],
       },
     },
     {
