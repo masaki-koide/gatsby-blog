@@ -9,6 +9,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import { SiteTitleQuery } from '../../graphql-types'
+
 import Header from './header'
 import './layout.css'
 

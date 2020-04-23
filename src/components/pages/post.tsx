@@ -10,6 +10,7 @@ type Props = {
   createdAt: string
   descriptionHtml: string
   imageFluid?: Pick<ContentfulFluid, 'src' | 'srcSet' | 'sizes'>
+  imageTitle: string
   next?: {
     slug: string
   }
@@ -26,6 +27,7 @@ const PostPage: React.FC<Props> = ({
   createdAt,
   descriptionHtml,
   imageFluid,
+  imageTitle,
   next,
   previous,
   tags,
@@ -42,15 +44,18 @@ const PostPage: React.FC<Props> = ({
         <article>
           {imageFluid && (
             <img
+              alt={imageTitle}
+              sizes={imageFluid.sizes}
               src={imageFluid.src}
               srcSet={imageFluid.srcSet}
-              sizes={imageFluid.sizes}
             />
           )}
           <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
           <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
           <div>
-            {tags && tags.length > 0 && tags.map(tag => <span>{tag}</span>)}
+            {tags &&
+              tags.length > 0 &&
+              tags.map(tag => <span key={tag}>{tag}</span>)}
           </div>
           <p>Created at {createdAt}</p>
           <p>Updated at {updatedAt}</p>
