@@ -39,6 +39,7 @@ const PostPageContainer = ({
     createdAt: createdAt ?? '',
     descriptionHtml: description?.childMarkdownRemark?.html ?? '',
     imageFluid: heroImage?.fluid ?? undefined,
+    imageTitle: heroImage?.title ?? '',
     next,
     previous,
     tags: (tags ?? []).filter(isNotNullable),
@@ -78,6 +79,7 @@ export const pageQuery = graphql`
           src
           srcSet
         }
+        title
       }
       tags
       title
