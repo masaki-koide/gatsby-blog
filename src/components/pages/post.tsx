@@ -43,26 +43,45 @@ const PostPage: React.FC<Props> = ({
         </header>
         <article>
           {imageFluid && (
-            <img
-              alt={imageTitle}
-              sizes={imageFluid.sizes}
-              src={imageFluid.src}
-              srcSet={imageFluid.srcSet}
-            />
+            <div>
+              <img
+                alt={imageTitle}
+                sizes={imageFluid.sizes}
+                src={imageFluid.src}
+                srcSet={imageFluid.srcSet}
+              />
+            </div>
           )}
           <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
           <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
-          <div>
-            {tags &&
-              tags.length > 0 &&
-              tags.map(tag => <span key={tag}>{tag}</span>)}
-          </div>
-          <p>Created at {createdAt}</p>
-          <p>Updated at {updatedAt}</p>
+          {tags && tags.length > 0 && (
+            <div>
+              <p>Tags</p>
+              <ul>
+                {tags.map(tag => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <ul>
+            <li>Created at {createdAt}</li>
+            <li>Updated at {updatedAt}</li>
+          </ul>
         </article>
         <footer>
-          {next && <Link to={`/posts/${next.slug}/`}>next</Link>}
-          {previous && <Link to={`/posts/${previous.slug}/`}>previous</Link>}
+          <ul>
+            {next && (
+              <li>
+                <Link to={`/posts/${next.slug}/`}>next</Link>
+              </li>
+            )}
+            {previous && (
+              <li>
+                <Link to={`/posts/${previous.slug}/`}>previous</Link>
+              </li>
+            )}
+          </ul>
         </footer>
       </section>
     </Layout>
