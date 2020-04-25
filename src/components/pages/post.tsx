@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ComponentProps } from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 
-import { ContentfulFluid } from '../../../graphql-types'
 import Layout from '../layout'
 import SEO from '../seo'
 
@@ -9,7 +9,7 @@ type Props = {
   bodyHtml: string
   createdAt: string
   descriptionHtml: string
-  imageFluid?: Pick<ContentfulFluid, 'src' | 'srcSet' | 'sizes'>
+  imageFluid?: ComponentProps<typeof Img>['fluid']
   imageTitle: string
   next?: {
     slug: string
@@ -44,12 +44,7 @@ const PostPage: React.FC<Props> = ({
         <article>
           {imageFluid && (
             <div>
-              <img
-                alt={imageTitle}
-                sizes={imageFluid.sizes}
-                src={imageFluid.src}
-                srcSet={imageFluid.srcSet}
-              />
+              <Img alt={imageTitle} fluid={imageFluid} />
             </div>
           )}
           <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />

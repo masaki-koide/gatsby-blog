@@ -32,13 +32,21 @@ const PostPageContainer = ({
     title,
     updatedAt,
   } = data.contentfulBlogPost
+  const imageFluid = heroImage?.fluid
+    ? {
+        ...heroImage.fluid,
+        base64: heroImage.fluid.base64 ?? undefined,
+        srcWebp: heroImage.fluid.srcWebp ?? undefined,
+        srcSetWebp: heroImage.fluid.srcSetWebp ?? undefined,
+      }
+    : undefined
   const { next, previous } = pageContext
 
   const props = {
     bodyHtml: body?.childMarkdownRemark?.html ?? '',
     createdAt: createdAt ?? '',
     descriptionHtml: description?.childMarkdownRemark?.html ?? '',
-    imageFluid: heroImage?.fluid ?? undefined,
+    imageFluid,
     imageTitle: heroImage?.title ?? '',
     next,
     previous,
@@ -75,9 +83,7 @@ export const pageQuery = graphql`
       heroImage {
         id
         fluid {
-          sizes
-          src
-          srcSet
+          ...GatsbyContentfulFluid_withWebp
         }
         title
       }
