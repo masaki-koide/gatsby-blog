@@ -5746,7 +5746,7 @@ export type StringQueryOperatorInput = {
 export type ImageSharpQueryVariables = {};
 
 
-export type ImageSharpQuery = { placeholderImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+export type ImageSharpQuery = { placeholderImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> };
 
 export type SiteTitleQueryVariables = {};
 
@@ -5778,7 +5778,7 @@ export type PostQuery = { contentfulBlogPost?: Maybe<(
       & { childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'id' | 'html'>> }
     )>, heroImage?: Maybe<(
       Pick<ContentfulAsset, 'id' | 'title'>
-      & { fluid?: Maybe<Pick<ContentfulFluid, 'sizes' | 'src' | 'srcSet'>> }
+      & { fluid?: Maybe<GatsbyContentfulFluid_WithWebpFragment> }
     )> }
   )> };
 
