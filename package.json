@@ -18,8 +18,7 @@
     "dev": "gatsby develop --open",
     "lint": "eslint './src/**/*.{ts,tsx}' --cache",
     "serve": "gatsby serve",
-    "start": "npm run develop",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "gatsby": "^2.20.12",
