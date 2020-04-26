@@ -1,15 +1,15 @@
 {
   "private": true,
-  "name": "gatsby-starter-default",
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "gatsby-blog",
+  "description": "Jamstack blog by gatsby",
   "license": "MIT",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "masaki-koide <ikasama0324@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "git+ssh://git@github.com:masaki-koide/gatsby-blog.git"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/masaki-koide/gatsby-blog/issues"
   },
   "version": "0.1.0",
   "scripts": {
@@ -55,7 +55,8 @@
     "typescript": "3.8.3"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "typescript"
   ],
   "husky": {
     "hooks": {
