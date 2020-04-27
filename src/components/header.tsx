@@ -7,14 +7,14 @@ type Props = {
 }
 
 const header = css`
-  background: rebeccapurple;
   margin-bottom: 1.45rem;
+  background: rebeccapurple;
 `
 
 const headingContainer = css`
-  margin: 0 auto;
   max-width: 960px;
   padding: 1.45rem 1.0875rem;
+  margin: 0 auto;
 `
 
 const heading = css`

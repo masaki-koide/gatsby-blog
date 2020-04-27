@@ -15,9 +15,9 @@ import globalStyle from '../styles/globalStyle'
 import Header from './header'
 
 const container = css`
-  margin: 0 auto;
   max-width: 960px;
   padding: 0 1.0875rem 1.45rem;
+  margin: 0 auto;
 `
 
 const Layout: React.FC = ({ children }) => {
