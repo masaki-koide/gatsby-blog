@@ -16,7 +16,9 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "dev": "gatsby develop --open",
-    "lint": "eslint './src/**/*.{ts,tsx}' --cache",
+    "lint": "yarn lint:css && yarn lint:js",
+    "lint:css": "NODE_ENV=test stylelint './src/**/*.{ts,tsx}' --cache",
+    "lint:js": "eslint './src/**/*.{ts,tsx}' --cache",
     "serve": "gatsby serve",
     "test": "jest"
   },
@@ -47,6 +49,7 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-helmet": "^5.0.15",
     "babel-jest": "25.4.0",
+    "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "eslint-config-thai-soup": "1.0.3",
     "husky": "4.2.5",
@@ -71,7 +74,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix --cache"
+      "eslint --fix --cache",
+      "cross-env NODE_ENV=test stylelint --cache"
     ],
     "package.json": "prettier-package-json --write"
   }
