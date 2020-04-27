@@ -7,11 +7,17 @@
 
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { css } from 'linaria'
 
 import { SiteTitleQuery } from '../../graphql-types'
 
 import Header from './header'
-import './layout.css'
+
+const container = css`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1.0875rem 1.45rem;
+`
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery<SiteTitleQuery>(graphql`
@@ -27,13 +33,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site?.siteMetadata?.title ?? ''} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <div className={container}>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
