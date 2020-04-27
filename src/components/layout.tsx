@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { css } from 'linaria'
 
 import { SiteTitleQuery } from '../../graphql-types'
+import globalStyle from '../styles/globalStyle'
 
 import Header from './header'
 
@@ -32,6 +33,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
+      <div className={globalStyle} />
       <Header siteTitle={data.site?.siteMetadata?.title ?? ''} />
       <div className={container}>
         <main>{children}</main>
