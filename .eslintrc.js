@@ -4,6 +4,7 @@ module.exports= {
     project: './tsconfig.json'
   },
   rules: {
-    '@typescript-eslint/camelcase': 'off'
+    '@typescript-eslint/camelcase': 'off',
+    'react/no-danger': 'off',
   }
 }
